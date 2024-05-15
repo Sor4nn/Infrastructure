@@ -19,3 +19,22 @@ services:
     ports:
       - "9000:9000"
     restart: always
+
+
+#COS NIE DZIALA CRASHUJE
+#a to działa 
+#docker run -d --name artifactory -p 8081:8081 -p 8082:8082 docker.bintray.io/jfrog/artifactory-jcr:7.39.4
+#wstalo beż volumes:
+#Config Descriptor odsiwezylem i zaczelo działać
+  artifactory:
+  artifactory:
+    container_name: artifactory
+    #volumes:
+    #  - ./artifactory/:/artifactory_extra_conf/
+    volumes:
+      - ./artifactory/:/artifactory_extra_conf/
+    image: docker.bintray.io/jfrog/artifactory-jcr:7.39.4
+    ports:
+      - "8081:8081"
+      - "8082:8082"
+    restart: always
