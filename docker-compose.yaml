@@ -2,6 +2,9 @@ version: '2.4'
 
 services:
   jenkins:
+    depends_on:
+      artifactory:
+        condition: service_healthy
     build: jenkins_controller
     container_name: jenkins
     ports:
@@ -39,7 +42,7 @@ services:
 #docker run -d --name artifactory -p 8081:8081 -p 8082:8082 docker.bintray.io/jfrog/artifactory-jcr:7.39.4
 #wstalo beż volumes:
 #Config Descriptor odsiwezylem i zaczelo działać
-  artifactory:
+ # artifactory:
   artifactory:
     container_name: artifactory
     #volumes:
@@ -51,3 +54,9 @@ services:
       - "8081:8081"
       - "8082:8082"
     restart: always
+    healthcheck:
+        test: ["CMD", "curl", "-f", "http://localhost:8082/artifactory/api/system/ping"]
+        start_period: 30s
+        interval: 5s
+        timeout: 10s
+        retries: 30
