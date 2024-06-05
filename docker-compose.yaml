@@ -43,22 +43,22 @@ services:
 #wstalo beż volumes:
 #Config Descriptor odsiwezylem i zaczelo działać
  # artifactory:
- /*
-  artifactory:
-    container_name: artifactory
-    #volumes:
-    #  - ./artifactory/:/artifactory_extra_conf/
-    volumes:
-      - ./artifactory/:/artifactory_extra_conf/
-    image: docker.bintray.io/jfrog/artifactory-jcr:7.39.4
-    ports:
-      - "8081:8081"
-      - "8082:8082"
-    restart: always
-    healthcheck:
-        test: ["CMD", "curl", "-f", "http://localhost:8082/artifactory/api/system/ping"]
-        start_period: 30s
-        interval: 5s
-        timeout: 10s
-        retries: 30
-*/
+#  /
+#   artifactory:
+#     container_name: artifactory
+#     #volumes:
+#     #  - ./artifactory/:/artifactory_extra_conf/
+#     volumes:
+#       - ./artifactory/:/artifactory_extra_conf/
+#     image: docker.bintray.io/jfrog/artifactory-jcr:7.39.4
+#     ports:
+#       - "8081:8081"
+#       - "8082:8082"
+#     restart: always
+#     healthcheck:
+#         test: ["CMD", "curl", "-f", "http://localhost:8082/artifactory/api/system/ping"]
+#         start_period: 30s
+#         interval: 5s
+#         timeout: 10s
+#         retries: 30
+# */
