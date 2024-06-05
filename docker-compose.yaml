@@ -2,9 +2,9 @@ version: '2.4'
 
 services:
   jenkins:
-    depends_on:
-      artifactory:
-        condition: service_healthy
+#    depends_on:
+#      artifactory:
+#        condition: service_healthy
     build: jenkins_controller
     container_name: jenkins
     ports:
@@ -43,6 +43,7 @@ services:
 #wstalo beż volumes:
 #Config Descriptor odsiwezylem i zaczelo działać
  # artifactory:
+ /*
   artifactory:
     container_name: artifactory
     #volumes:
@@ -60,3 +61,4 @@ services:
         interval: 5s
         timeout: 10s
         retries: 30
+*/
